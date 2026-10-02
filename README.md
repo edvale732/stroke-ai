@@ -19,7 +19,7 @@
 
 Frame from a video showing pose estimation and key joint angle extraction
 
-![Frame with Pose Estimation and Key Joint Angle Extraction](image.png)
+
 
 
 ### Models
