@@ -44,7 +44,10 @@ the cells in order.
 
 ## Images
 
-Frame from a video showing pose estimation and key joint angle extraction
+Frame from a video showing pose estimation, key joint angle extraction and stroke phase extraction
+
+![at finish](image.png)
+![at catch](image-1.png)
 
 
 ## Methodology
@@ -113,12 +116,51 @@ Approach
 
 ## Planned Features
 
-- Sequence Analysis
-    - Hips opening early
-    - Not connecting with legs
-    - Arms coming in early
-
 - Form Analysis
-    - Not sitting up straight at catch
-    - Rowing short
-    - Leaning back too far/ too little at finish
+    - Catch
+    - Knee and hip angles
+        - Gives a picture of how compressed rower is at the catch
+        - Shins should be almost vertical
+
+    - Trunk lean
+        - Rough posture measurement
+        - Should not be collapsing at the catch
+
+- Finish
+    - Knee extension
+        - Are legs fully extended at catch, or is there length left on the table
+
+    - Trunk lean
+        - Are you leant too far back or not leant back enough?
+
+    - Elbow flexion
+        - Are you bringing your arms all the way into the body
+        - Are you finishing too high/low on the body
+
+- Sequencing
+    - Compare when legs, hips and elbows start moving 
+    - Check for:
+        - early body opening, 
+        - arms engaging too soon, 
+        - not connecting with legs
+
+
+- Stroke Data
+    - Drive : Recovery ratio should be 1 : 2 at lower rates
+
+
+- V1 - Rule Based
+    - Gather rules from dataset of professional rowers
+
+- V2 - Statistical
+    - Calculate mean sequencing, angles, etc over a period of strokes and compare to benchmark
+
+- V3 - ML Classifier
+    - Label strokes for different flaws (i.e., early body opening)
+    - Train XGBoost model
+
+- V4 - Deep Learning
+    - Feed time series data into Transformer
+
+- V5 - Input into LLM
+    - Provide LLM with data to provide natural language feedback
